@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="album"
+                type="com.example.android_record_shop.model.Album" />
+    </data>
+    <androidx.cardview.widget.CardView
+            android:elevation="20dp"
+            android:backgroundTint="@color/material_dynamic_primary80"
+            app:cardCornerRadius="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+
+                    android:id="@+id/artistTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Artist" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"/>
+
+            <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{album.title}" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
+                    app:layout_constraintEnd_toStartOf="parent"/>
+
+            <TextView
+                    android:id="@+id/releaseYearTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Integer.toString(album.releaseYear)}" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
+                    app:layout_constraintEnd_toStartOf="parent"/>
+
+            <TextView
+                    android:id="@+id/stockTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Integer.toString(album.stock)}" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
+                    app:layout_constraintEnd_toStartOf="parent"/>
+
+            <TextView
+                    android:id="@+id/genreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{album.genre.toString()}" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
+                    app:layout_constraintEnd_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
