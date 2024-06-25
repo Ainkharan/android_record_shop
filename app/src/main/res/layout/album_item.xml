@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -23,46 +23,68 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+            <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{album.title}"
+                    android:hint="title"
+                    app:layout_constraintTop_toBottomOf="@+id/artistTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp" app:layout_constraintHorizontal_bias="0.0"/>
             <TextView
 
                     android:id="@+id/artistTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Artist" app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{album.artist}"
+                    android:hint="Artist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTextView"
                     app:layout_constraintStart_toStartOf="@+id/titleTextView"/>
 
-            <TextView
-                    android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{album.title}" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
-                    app:layout_constraintEnd_toStartOf="parent"/>
+
+            <!--            <TextView-->
+            <!--                    android:id="@+id/stockTextView"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="@{Integer.toString(album.stock)}" app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"-->
+            <!--                    app:layout_constraintEnd_toStartOf="parent"/>-->
 
             <TextView
                     android:id="@+id/releaseYearTextView"
                     android:layout_width="wrap_content"
+                    android:hint="release year"
                     android:layout_height="wrap_content"
-                    android:text="@{Integer.toString(album.releaseYear)}" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
-                    app:layout_constraintEnd_toStartOf="parent"/>
-
-            <TextView
-                    android:id="@+id/stockTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{Integer.toString(album.stock)}" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
-                    app:layout_constraintEnd_toStartOf="parent"/>
-
+                    android:text="@{Integer.toString(album.releaseYear)}"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
             <TextView
                     android:id="@+id/genreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{album.genre.toString()}" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/artistTextView"
-                    app:layout_constraintEnd_toStartOf="parent"/>
+                    android:hint="Genre"
+                    android:text="@{album.genre.toString()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/artistTextView"
+                    />
+
+            <TextView
+                    android:id="@+id/labelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="label"
+                    android:text="@{album.label}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genreTextView"
+                    />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

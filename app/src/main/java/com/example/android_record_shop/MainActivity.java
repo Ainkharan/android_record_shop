@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
-        albums = new ArrayList<>();
+//        albums = new ArrayList<>();
 
         getAllAlbums();
     }
@@ -51,9 +51,6 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(List<Album> albumsFromLiveData) {
 
                 albums = (ArrayList<Album>) albumsFromLiveData;
-                for (Album album: albums) {
-                    Log.i("main Activity log", album.toString());
-                }
 
                 displayInRecyclerView();
             }
@@ -62,13 +59,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayInRecyclerView() {
 
-        List<Album> album1 = new ArrayList<>();
-        album1.add(new Album(1,"kss","sjsjj",23,43, Genre.ROCK));
+//        List<Album> album1 = new ArrayList<>();
+//        album1.add(new Album(1,"kss","sjsjj",23, Genre.ROCK, "sony"));
+//        album1.add(new Album(1,"kss","sjsjj",23, Genre.ROCK, "Virgin"));
 
         recyclerView = binding.recyclerView;
-        albumAdapter = new AlbumAdapter(album1, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        albumAdapter = new AlbumAdapter(albums, this);
         recyclerView.setAdapter(albumAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         recyclerView.setHasFixedSize(true);
         //binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
